@@ -10,6 +10,7 @@ class ClientProtocol(asyncio.DatagramProtocol):
     def error_received(self, exc):
         print(f"[!] Системная ошибка сети: {exc}")
 
+
 async def send_data(filepath):
     loop = asyncio.get_running_loop()
 
@@ -29,7 +30,7 @@ async def send_data(filepath):
             transport.sendto(payload)
             print(f"[UDP] Отправлен пакет: {json_str}")
             
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(1)
 
         print("[*] Все данные из датафрейма успешно отправлены!")
         print("[*] Начинаю передачу сначала файла\n")
