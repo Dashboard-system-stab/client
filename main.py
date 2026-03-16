@@ -1,8 +1,9 @@
 import asyncio
 import pandas as pd
+import os
 
-GATEWAY_ADDR = "127.0.0.1"
-GATEWAY_PORT = 9999
+GATEWAY_ADDR = os.environ.get("GATEWAY_ADDR", "gateway")
+GATEWAY_PORT = int(os.environ.get("GATEWAY_PORT", 9999))
 DATA_FILE = "weather_data.csv"
 
 
